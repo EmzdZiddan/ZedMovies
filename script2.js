@@ -1,4 +1,3 @@
-// Search btn trigger
 const searchBtn = document.querySelector('.search-button')
 searchBtn.addEventListener('click',async function () { 
     const inputKeyword = document.querySelector('.input-keyword')
@@ -39,7 +38,6 @@ function showCards(m) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////   
 
-// Detail btn trigger
 document.addEventListener('click',async function (e) {
     if(e.target.classList.contains('modal-detail-button')){
         const imdbid = e.target.dataset.imdbid
@@ -48,14 +46,12 @@ document.addEventListener('click',async function (e) {
     }
 })
 
-// imdbid
 function getMovieDetail (imdbid) {
     return fetch('http://www.omdbapi.com/?apikey=82824ab8&i=' + imdbid)
         .then(response => response.json())
         .then(m => m)
 }
 
-// Update UI Show Details
 function updateUIDetail (m) {
     const movieDetail = showMovieDetail(m)
     const modalBody = document.querySelector('.modal-body')
